@@ -42,11 +42,3 @@ jobs:
       - name: Zip the deployment package
         run: |
           cd deploy && zip -r ../java-app.zip . && cd ..
-
-      - name: Upload to S3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ap-south-1
-        run: |
-          aws s3 cp java-app.zip s3://myphase2bucket2025/java-app.zip
